@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: guitar-fr
+  labels:
+    app: guitar-fr
+    type: front-end
+spec:
+  containers:
+    - name: guitar-fr
+      image: dpcairns/guitar-fe:latest
+      env:
+        - name: REACT_APP_API_URL 
+          value: "wtf"
