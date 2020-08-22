@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: guitar-be-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 3000
+      targetPort: 3000
   selector:
     app: guitar-be
     type: back-end

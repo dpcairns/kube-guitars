@@ -13,4 +13,14 @@ spec:
       - name: PORT
         value: "3000"
       - name: DATABASE_URL
-        value: "postgres://aimirlbnkltzou:58a3ca982313be68892b0d8e9c84bce27049c60ee2b5adfb1442e2fd649c2ec2@ec2-54-160-120-28.compute-1.amazonaws.com:5432/d2o4terpamskao?sslmode=require"
+        value: "postgres://postgres:guitarpassword@10.108.234.104:5432/guitardb"
+      - name: DB_HOST
+        value: "private-guitars-db-do-user-1683116-0.a.db.ondigitalocean.com"
+      - name: DB_NAME
+        value: "defaultdb"
+      - name: DB_USER
+        value: "doadmin"
+      - name: DB_PASSWORD
+        value: "dhr94vraj3bovur5"
+      - name: DB_PORT 
+        value: "25060"
