@@ -1,14 +1,33 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: guitar-fr
-  labels:
-    app: guitar-fr
-    type: front-end
+  name: guitar-fr-deployment
 spec:
-  containers:
-    - name: guitar-fr
-      image: dpcairns/guitar-fe:latest
-      env:
-        - name: REACT_APP_API_URL 
-          value: "wtf"
+  selector:
+    matchLabels:
+      app: guitar-fr
+  template:
+    metadata:
+      labels:
+        app: guitar-fr
+    spec:
+      containers:
+        - name: guitar-front-end
+          image: dpcairns/guitar-fe:v4
+          ports:
+            - containerPort: 80
+          env:
+          - name: REACT_APP_ENV
+            value: guitar-be-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: guitar-fr-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: guitar-fr
